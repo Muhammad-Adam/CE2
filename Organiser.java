@@ -38,7 +38,7 @@ public class Organiser {
 		if (myDecipher.isGoodCommand()) {
 			Logic myLogic = new Logic(fileName);
 			String commandType = myDecipher.getCommandType();
-			if (commandType.equals("add") || commandType.equals("delete")) {
+			if (commandType.equals("add") || commandType.equals("delete") || commandType.equals("search")) {
 				String description = myDecipher.getDescription();
 				return myLogic.execute(commandType, description);
 			} else {
