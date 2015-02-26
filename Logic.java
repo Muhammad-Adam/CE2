@@ -10,6 +10,7 @@ public class Logic {
 	private static final String MESSAGE_EMPTY = "%s is empty";
 	private static final String MESSAGE_CLEARED = "all content deleted from %s";
 	private static final String MESSAGE_SORTED = "Contents sorted!";
+	private static final String MESSAGE_NO_RESULT = "no lines containing the word: \"%s\"";
 	private static final String MESSAGE_GOODBYE = "Goodbye!";
 
 	private String fileName;
@@ -27,6 +28,8 @@ public class Logic {
 	public String execute(String commandType, String description) {
 		if (commandType.equals("add")) {
 			return addLineToFile(description);
+		} else if (commandType.equals("search")) {
+			return searchLinesInFile(description);
 		} else {
 			return deleteLineInFile(description);
 		}
@@ -34,7 +37,7 @@ public class Logic {
 	
 	/*
 	 * Method will call appropriate methods depending on the command type
-	 * The only command types that use this method are "display", "clear" and "exit"
+	 * The only command types that use this method are "display", "clear", "sort" and "exit"
 	 */
 	public String execute(String command) {
 		if (command.equals("display")) {
@@ -62,6 +65,14 @@ public class Logic {
 		} else {
 			return String.format(MESSAGE_DELETED, fileName, lineDeleted);
 		}
+	}
+	
+	private String searchLinesInFile(String keyword) {
+		String searchResult = myStorage.searchFor(keyword);
+		if (searchResult.equals("")) {
+			return String.format(MESSAGE_NO_RESULT, keyword);
+		}
+		return searchResult;
 	}
 	
 	/*

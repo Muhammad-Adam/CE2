@@ -43,7 +43,7 @@ public class Decipher {
 	// Checks whether the command is a valid two-parts command
 	private boolean isValidTwoPartsCommand() {
 		boolean isValid = true;
-		if (this.getCommandType().equals("delete") || this.getCommandType().equals("add")) {
+		if (this.getCommandType().equals("delete") || this.getCommandType().equals("add") || this.getCommandType().equals("search")) {
 			try {
 				Integer.parseInt(this.getDescription());
 			} catch (NumberFormatException e) {
