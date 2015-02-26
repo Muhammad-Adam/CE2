@@ -151,6 +151,8 @@ public class TextBuddyTest {
 		assertEquals("Unknown command format", organiserTest.processCommand("exit program"));
 		assertEquals("Unknown command format", organiserTest.processCommand("Clear"));
 		assertEquals("Unknown command format", organiserTest.processCommand("123 add5"));
+		assertEquals("Unknown command format", organiserTest.processCommand("sort now"));
+		assertEquals("Unknown command format", organiserTest.processCommand("Sort"));
 	}
 	
 	@Test
@@ -171,6 +173,10 @@ public class TextBuddyTest {
 		assertEquals("added to organiserTest.txt: \"b\"", organiserTest.processCommand("add b"));
 		assertEquals("added to organiserTest.txt: \"c\"", organiserTest.processCommand("add c"));
 		assertEquals("1. a\n2. b\n3. c", organiserTest.processCommand("display"));
+		
+		assertEquals("Contents sorted!", organiserTest.processCommand("sort"));
+		assertEquals("1. a\n2. b\n3. c", organiserTest.processCommand("display"));
+		
 		assertEquals("all content deleted from organiserTest.txt", organiserTest.processCommand("clear"));
 		assertEquals("organiserTest.txt is empty", organiserTest.processCommand("display"));
 	}
