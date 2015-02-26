@@ -22,7 +22,7 @@ public class Organiser {
 	// Create a Storage object to create a text file if it does not exist
 	public void createOrOpenFile() {
 		Storage myStorage = new Storage(fileName);
-		myStorage.createOrOpenTextFile();
+		myStorage.closeTextFile(myStorage.openTextFileOveride(false));
 	}
 	
 	public String promptForCommand() {
