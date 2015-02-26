@@ -9,6 +9,7 @@ public class Logic {
 	private static final String MESSAGE_NO_EXIST = "Line number %s does not exist";
 	private static final String MESSAGE_EMPTY = "%s is empty";
 	private static final String MESSAGE_CLEARED = "all content deleted from %s";
+	private static final String MESSAGE_SORTED = "Contents sorted!";
 	private static final String MESSAGE_GOODBYE = "Goodbye!";
 
 	private String fileName;
@@ -40,6 +41,8 @@ public class Logic {
 			return printLinesOnScreen();
 		} else if (command.equals("clear")) {
 			return clearFile();
+		} else if (command.equals("sort")) {
+			return sortFile();
 		} else {
 			return printGoodbye();
 		}
@@ -79,6 +82,11 @@ public class Logic {
 		myStorage.clearLines();
 		return String.format(MESSAGE_CLEARED, fileName);
 		
+	}
+	
+	private String sortFile() {
+		myStorage.sortContent();
+		return MESSAGE_SORTED;
 	}
 	
 	private String printGoodbye() {
