@@ -105,4 +105,9 @@ public class Storage {
 		}
 		return listOfText;
 	}
+
+	public Object sortContent() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }
