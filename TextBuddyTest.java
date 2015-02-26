@@ -204,5 +204,10 @@ public class TextBuddyTest {
 		storageTest.sortContent();
 		assertEquals("1. aaa\n2. aaaaaa\n3. aab\n4. ababa\n5. baaaaaa", storageTest.printLines());
 	}
+	
+	@Test
+	public void testSearch() {
+		fail("Initialize");
+	}
 
 }
