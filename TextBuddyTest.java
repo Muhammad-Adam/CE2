@@ -152,6 +152,9 @@ public class TextBuddyTest {
 		assertEquals("Contents sorted!", logicTest.execute("sort"));
 		assertEquals("1. complete project\n2. do homework by Wed\n3. wamBaDada 2356", logicTest.execute("display"));
 		
+		assertEquals("1. do homework by Wed", logicTest.execute("search", "homework"));
+		assertEquals("no lines containing the word: \"important\"", logicTest.execute("search", "important"));
+		
 		assertEquals("all content deleted from logicTest.txt", logicTest.execute("clear"));
 		assertEquals("Goodbye!", logicTest.execute("exit"));
 	}
