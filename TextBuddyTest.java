@@ -207,7 +207,12 @@ public class TextBuddyTest {
 	
 	@Test
 	public void testSearch() {
-		fail("Initialize");
+		Storage storageTest = new Storage("searchTest.txt");
+		storageTest.addLine("do CS2103 project");
+		storageTest.addLine("buy groceries");
+		storageTest.addLine("finish CS2103 tutorial");
+		storageTest.addLine("complete CS2103 notes");
+		assertEquals("1. do CS2103 project\n2. finish CS2103 tutorial\n3. complete CS2103 notes", storageTest.searchFor("CS2103"));
 	}
 
 }
