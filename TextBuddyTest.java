@@ -172,6 +172,16 @@ public class TextBuddyTest {
 		storageTest.addLine("durian");
 		storageTest.sortContent();
 		assertEquals("1. apple\n2. apricot\n3. durian\n4. grapes\n5. pear", storageTest.printLines());
+		
+		storageTest.clearLines();
+		storageTest.clearLines();
+		storageTest.addLine("aab");
+		storageTest.addLine("aaa");
+		storageTest.addLine("aaaaaa");
+		storageTest.addLine("baaaaaa");
+		storageTest.addLine("ababa");
+		storageTest.sortContent();
+		assertEquals("1. aaa\n2. aaaaaa\n3. aab\n4. ababa\n5. baaaaaa", storageTest.printLines());
 	}
 
 }
