@@ -34,5 +34,51 @@ public class TextBuddyTest {
 		assertEquals("exit", decipherTest.getCommandType());
 		assertTrue(decipherTest.isGoodCommand());
 	}
+	
+	@Test
+	public void testDecipherInvalidCommand() {
+		
+		Decipher decipherTest = new Decipher("hello 123");
+		assertEquals("hello", decipherTest.getCommandType());
+		assertEquals("123", decipherTest.getDescription());
+		assertFalse(decipherTest.isGoodCommand());
+		
+		decipherTest = new Decipher("add");
+		assertEquals("add", decipherTest.getCommandType());
+		assertFalse(decipherTest.isGoodCommand());
+		
+		decipherTest = new Decipher("delete");
+		assertEquals("delete", decipherTest.getCommandType());
+		assertFalse(decipherTest.isGoodCommand());
+		
+		decipherTest = new Decipher("delete abc");
+		assertEquals("delete", decipherTest.getCommandType());
+		assertEquals("abc", decipherTest.getDescription());
+		assertFalse(decipherTest.isGoodCommand());
+		
+		decipherTest = new Decipher("clear 1");
+		assertEquals("clear", decipherTest.getCommandType());
+		assertEquals("1", decipherTest.getDescription());
+		assertFalse(decipherTest.isGoodCommand());
+		
+		decipherTest = new Decipher("display 4c");
+		assertEquals("display", decipherTest.getCommandType());
+		assertEquals("4c", decipherTest.getDescription());
+		assertFalse(decipherTest.isGoodCommand());
+		
+		decipherTest = new Decipher("exit program");
+		assertEquals("exit", decipherTest.getCommandType());
+		assertEquals("program", decipherTest.getDescription());
+		assertFalse(decipherTest.isGoodCommand());
+		
+		decipherTest = new Decipher(" add do homework");
+		assertEquals("", decipherTest.getCommandType());
+		assertEquals("add do homework", decipherTest.getDescription());
+		assertFalse(decipherTest.isGoodCommand());
+		
+		decipherTest = new Decipher("Clear");
+		assertEquals("Clear", decipherTest.getCommandType());
+		assertFalse(decipherTest.isGoodCommand());
+	}
 
 }
