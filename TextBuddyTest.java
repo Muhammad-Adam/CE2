@@ -195,7 +195,6 @@ public class TextBuddyTest {
 		assertEquals("1. apple\n2. apricot\n3. durian\n4. grapes\n5. pear", storageTest.printLines());
 		
 		storageTest.clearLines();
-		storageTest.clearLines();
 		storageTest.addLine("aab");
 		storageTest.addLine("aaa");
 		storageTest.addLine("aaaaaa");
@@ -214,6 +213,13 @@ public class TextBuddyTest {
 		storageTest.addLine("finish CS2103 tutorial");
 		storageTest.addLine("complete CS2103 notes");
 		assertEquals("1. do CS2103 project\n2. finish CS2103 tutorial\n3. complete CS2103 notes", storageTest.searchFor("CS2103"));
+		
+		storageTest.clearLines();
+		storageTest.addLine("aaa abcdef");
+		storageTest.addLine("abcdef aaa");
+		storageTest.addLine("123 bbb 123");
+		storageTest.addLine("123 bbb123");
+		assertEquals("1. aaa abcdef\n2. abcdef aaa", storageTest.searchFor("aaa"));
 	}
 
 }
