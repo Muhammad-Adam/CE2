@@ -122,5 +122,20 @@ public class TextBuddyTest {
 		assertEquals("all content deleted from logicTest.txt", logicTest.execute("clear"));
 		assertEquals("Goodbye!", logicTest.execute("exit"));
 	}
+	
+	@Test
+	public void testOrganiserInvalidCommand() {
+		
+		Organiser organiserTest = new Organiser("organiserTest.txt");
+		assertEquals("Welcome to TextBuddy. organiserTest.txt is ready for use", organiserTest.showWelcomeMessage());
+		assertEquals("command: ", organiserTest.promptForCommand());
+		assertEquals("Unknown command format", organiserTest.processCommand("add"));
+		assertEquals("Unknown command format", organiserTest.processCommand("delete a"));
+		assertEquals("Unknown command format", organiserTest.processCommand(" add text"));
+		assertEquals("Unknown command format", organiserTest.processCommand("display 2"));
+		assertEquals("Unknown command format", organiserTest.processCommand("exit program"));
+		assertEquals("Unknown command format", organiserTest.processCommand("Clear"));
+		assertEquals("Unknown command format", organiserTest.processCommand("123 add5"));
+	}
 
 }
