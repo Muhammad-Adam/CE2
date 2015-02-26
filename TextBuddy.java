@@ -45,7 +45,7 @@ public class TextBuddy {
 		println(myOrganiser.showWelcomeMessage());
 		while (!command.equals("exit")) {
 			print(myOrganiser.promptForCommand());
-			String command = userInput.nextLine();
+			command = userInput.nextLine();
 			println(myOrganiser.processCommand(command));
 		}	
     }
