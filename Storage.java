@@ -117,6 +117,7 @@ public class Storage {
 	}
 
 	public String searchFor(String string) {
+		String keyword = " " + string + " ";
 		String searchResult = printLines();
 		return searchResult;
 	}
