@@ -101,5 +101,26 @@ public class TextBuddyTest {
 		assertEquals("", storageTest.deleteLine("1"));
 		assertEquals("", storageTest.deleteLine("10"));
 	}
+	
+	@Test
+	public void testLogic() {
+		
+		Logic logicTest = new Logic("logicTest.txt");
+		assertEquals("added to logicTest.txt: \"do homework by Wed\"", logicTest.execute("add", "do homework by Wed"));
+		assertEquals("added to logicTest.txt: \"complete project\"", logicTest.execute("add", "complete project"));
+		assertEquals("deleted from logicTest.txt: \"do homework by Wed\"", logicTest.execute("delete", "1"));
+		assertEquals("Line number 2 does not exist", logicTest.execute("delete", "2"));
+		assertEquals("deleted from logicTest.txt: \"complete project\"", logicTest.execute("delete", "1"));
+		
+		assertEquals("all content deleted from logicTest.txt", logicTest.execute("clear"));
+		assertEquals("logicTest.txt is empty", logicTest.execute("display"));
+		assertEquals("added to logicTest.txt: \"do homework by Wed\"", logicTest.execute("add", "do homework by Wed"));
+		assertEquals("added to logicTest.txt: \"complete project\"", logicTest.execute("add", "complete project"));
+		assertEquals("added to logicTest.txt: \"WamBaDada 2356\"", logicTest.execute("add", "WamBaDada 2356"));
+		assertEquals("1. do homework by Wed\n2. complete project\n3. WamBaDada 2356", logicTest.execute("display"));
+		
+		assertEquals("all content deleted from logicTest.txt", logicTest.execute("clear"));
+		assertEquals("Goodbye!", logicTest.execute("exit"));
+	}
 
 }
