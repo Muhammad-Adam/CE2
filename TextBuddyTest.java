@@ -37,6 +37,16 @@ public class TextBuddyTest {
 		decipherTest = new Decipher("sort");
 		assertEquals("sort", decipherTest.getCommandType());
 		assertTrue(decipherTest.isGoodCommand());
+		
+		decipherTest = new Decipher("search homework");
+		assertEquals("search", decipherTest.getCommandType());
+		assertEquals("homework", decipherTest.getDescription());
+		assertTrue(decipherTest.isGoodCommand());
+		
+		decipherTest = new Decipher("search  a1b2c3");
+		assertEquals("search", decipherTest.getCommandType());
+		assertEquals(" a1b2c3", decipherTest.getDescription());
+		assertTrue(decipherTest.isGoodCommand());
 	}
 	
 	@Test
@@ -90,6 +100,14 @@ public class TextBuddyTest {
 		
 		decipherTest = new Decipher("sort all");
 		assertEquals("sort", decipherTest.getCommandType());
+		assertFalse(decipherTest.isGoodCommand());
+		
+		decipherTest = new Decipher("search");
+		assertEquals("search", decipherTest.getCommandType());
+		assertFalse(decipherTest.isGoodCommand());
+		
+		decipherTest = new Decipher("Search all");
+		assertEquals("Search", decipherTest.getCommandType());
 		assertFalse(decipherTest.isGoodCommand());
 	}
 	
