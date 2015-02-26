@@ -162,7 +162,14 @@ public class TextBuddyTest {
 	
 	@Test
 	public void testSort() {
-		fail("initialize");
+		
+		Storage storageTest = new Storage("sortTest.txt");
+		storageTest.addLine("pear");
+		storageTest.addLine("apple");
+		storageTest.addLine("grapes");
+		storageTest.addLine("apricot");
+		storageTest.addLine("durian");
+		assertEquals("1. apple\n2. apricot\n3. durian\n4. grapes\n5. pear", storageTest.sortContent());
 	}
 
 }
