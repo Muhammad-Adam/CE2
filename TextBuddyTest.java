@@ -159,5 +159,10 @@ public class TextBuddyTest {
 		assertEquals("all content deleted from organiserTest.txt", organiserTest.processCommand("clear"));
 		assertEquals("organiserTest.txt is empty", organiserTest.processCommand("display"));
 	}
+	
+	@Test
+	public void testSort() {
+		fail("initialize");
+	}
 
 }
