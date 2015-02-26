@@ -116,8 +116,8 @@ public class Storage {
 		}
 	}
 
-	public Object searchFor(String string) {
+	public String searchFor(String string) {
 		// TODO Auto-generated method stub
-		return null;
+		return "";
 	}
 }
