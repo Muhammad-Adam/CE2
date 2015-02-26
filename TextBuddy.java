@@ -6,8 +6,8 @@ import java.util.Scanner;
 
  * This class is used to create a text file where user can add, delete, clear and display text.
  * User can store as many lines of text as he or she wants.
- * Limited to commands: "add", "clear", "delete", "display" and "exit". NO OTHER COMMANDS OR SHORTCUT AVAILABLE
- * Note that commands are also case-sensitive
+ * Limited to commands: "add", "clear", "delete", "search", "sort", "display" and "exit". NO OTHER COMMANDS OR SHORTCUT AVAILABLE
+ * Note that commands are also cAsE-sEnSiTiVe
  * If user were to add an exact copy of text, the class WOULD NOT ignore the command and just execute it.
  * The command format is given by the example interaction below:
  

@@ -29,23 +29,32 @@ public class Organiser {
 		return MESSAGE_COMMAND;
 	}
 	
-	/*
-	 * Method will pass its argument to Logic object which then will 
-	 * call the appropriate method with the help of the Decipher object
-	 */
+	
+	// Method creates Decipher object and check if valid before calling other method
 	public String processCommand(String command) { 
 		Decipher myDecipher = new Decipher(command);
 		if (myDecipher.isGoodCommand()) {
-			Logic myLogic = new Logic(fileName);
-			String commandType = myDecipher.getCommandType();
-			if (commandType.equals("add") || commandType.equals("delete") || commandType.equals("search")) {
-				String description = myDecipher.getDescription();
-				return myLogic.execute(commandType, description);
-			} else {
-				return myLogic.execute(commandType);
-			}
+			return divertToMethods(command, myDecipher);
 		} else {
 			return MESSAGE_UNKNOWN_COMMAND;
 		}
+	}
+	// Create a Logic object and pass is to appropriate method depending on command type
+	private String divertToMethods(String command, Decipher myDecipher) {
+		Logic myLogic = new Logic(fileName);
+		String commandType = myDecipher.getCommandType();
+		if (commandGroupOne(commandType)) {
+			String description = myDecipher.getDescription();
+			return myLogic.execute(commandType, description);
+		} else {
+			return myLogic.execute(commandType);
+		}
+	}
+	
+	private boolean commandGroupOne(String commandType) {
+		if (commandType.equals("add") || commandType.equals("delete") || commandType.equals("search")) {
+			return true;
+		}
+		return false;
 	}
 }
