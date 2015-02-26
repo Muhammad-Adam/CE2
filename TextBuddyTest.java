@@ -220,6 +220,10 @@ public class TextBuddyTest {
 		storageTest.addLine("123 bbb 123");
 		storageTest.addLine("123 bbb123");
 		assertEquals("1. aaa abcdef\n2. abcdef aaa", storageTest.searchFor("aaa"));
+		assertEquals("1. 123 bbb 123", storageTest.searchFor("bbb"));
+		
+		storageTest.clearLines();
+		assertEquals("", storageTest.searchFor("something"));
 	}
 
 }
