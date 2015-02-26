@@ -19,8 +19,10 @@ public class Logic {
 		myStorage = new Storage(fileName);
 	}
 	
-	// Method will call appropriate methods depending on the command type
-	// The only command types that use this method are "add" and "delete"
+	/*
+	 * Method will call appropriate methods depending on the command type
+	 * The only command types that use this method are "add" and "delete"
+	 */
 	public String execute(String commandType, String description) {
 		if (commandType.equals("add")) {
 			return addLineToFile(description);
@@ -29,8 +31,10 @@ public class Logic {
 		}
 	}
 	
-	// Method will call appropriate methods depending on the command type
-	// The only command types that use this method are "display", "clear" and "exit"
+	/*
+	 * Method will call appropriate methods depending on the command type
+	 * The only command types that use this method are "display", "clear" and "exit"
+	 */
 	public String execute(String command) {
 		if (command.equals("display")) {
 			return printLinesOnScreen();
@@ -47,7 +51,7 @@ public class Logic {
 		return String.format(MESSAGE_ADDED, fileName, info);
 	}
 	
-	// Pass the argument to Storage object to let it delete a line
+	// Pass the argument to Storage object to let it delete a line, if exist
 	private String deleteLineInFile(String lineNumber) {
 		String lineDeleted = myStorage.deleteLine(lineNumber);
 		if (lineDeleted.equals("")) {
@@ -57,7 +61,10 @@ public class Logic {
 		}
 	}
 	
-	// Call a method from Storage object to let it print line by line
+	/*
+	 * Call a method from Storage object to format the contents
+	 * so that it will print line by line, if there are contents
+	 */
 	private String printLinesOnScreen() {
 		String output = myStorage.printLines();
 		if (output.equals("")) {
@@ -67,7 +74,7 @@ public class Logic {
 		}
 	}
 	
-	// Call a method from Storage object to clear 
+	// Call a method from Storage object to clear its contents
 	private String clearFile() {
 		myStorage.clearLines();
 		return String.format(MESSAGE_CLEARED, fileName);

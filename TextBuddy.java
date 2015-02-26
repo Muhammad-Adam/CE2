@@ -39,10 +39,10 @@ public class TextBuddy {
 	private static Scanner userInput = new Scanner(System.in);
 	private static String command = "startup";
 	
-	// Generally will just loop until an "exit" command is given
+	// Loop an Organiser object and its methods until an "exit" command is given
 	public static void main(String[] args) {
 		Organiser myOrganiser = new Organiser(args[0]);
-		myOrganiser.createOrOpenFile();
+		myOrganiser.createOrOpenFile();  // --> Important line if the text file does not exist
 		println(myOrganiser.showWelcomeMessage());
 		while (!command.equals("exit")) {
 			print(myOrganiser.promptForCommand());

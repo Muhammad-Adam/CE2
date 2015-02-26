@@ -6,8 +6,8 @@ import java.io.FileWriter;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-/** This class will do all the editing on the txt file 
- * 	or print stuffs from the txt file 
+/** This class will do all the creating, editing and format the content of the text file
+ * 	Note that only valid commands will use this class
  */
 
 public class Storage {

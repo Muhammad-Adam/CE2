@@ -1,5 +1,5 @@
 /**
- * This class only serves the purpose of helping the main class to execute some methods
+ * This class only serves the purpose of helping the main class to execute methods
  * when the main class is looping.
  */
 
@@ -19,6 +19,7 @@ public class Organiser {
 		return String.format(MESSAGE_WELCOME, fileName);
 	}
 	
+	// Create a Storage object to create a text file if it does not exist
 	public void createOrOpenFile() {
 		Storage myStorage = new Storage(fileName);
 		myStorage.createOrOpenTextFile();
@@ -28,7 +29,10 @@ public class Organiser {
 		return MESSAGE_COMMAND;
 	}
 	
-	// Method will check what type of command before calling other appropriate methods from other class
+	/*
+	 * Method will pass its argument to Logic object which then will 
+	 * call the appropriate method with the help of the Decipher object
+	 */
 	public String processCommand(String command) { 
 		Decipher myDecipher = new Decipher(command);
 		if (myDecipher.isGoodCommand()) {
