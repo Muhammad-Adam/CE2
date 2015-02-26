@@ -117,7 +117,7 @@ public class Storage {
 	}
 
 	public String searchFor(String string) {
-		// TODO Auto-generated method stub
-		return "";
+		String searchResult = printLines();
+		return searchResult;
 	}
 }

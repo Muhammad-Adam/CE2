@@ -208,6 +208,7 @@ public class TextBuddyTest {
 	@Test
 	public void testSearch() {
 		Storage storageTest = new Storage("searchTest.txt");
+		storageTest.clearLines();
 		storageTest.addLine("do CS2103 project");
 		storageTest.addLine("buy groceries");
 		storageTest.addLine("finish CS2103 tutorial");
