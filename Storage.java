@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.io.FileWriter;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Scanner;
 
 /** This class will do all the creating, editing and format the content of the text file
@@ -106,8 +107,12 @@ public class Storage {
 		return listOfText;
 	}
 
-	public Object sortContent() {
-		ArrayList<String> listOfText = new ArrayList<String>();
-		return null;
+	public void sortContent() {
+		ArrayList<String> allLines = storeInArrayList();
+		Collections.sort(allLines);
+		clearLines();
+		for (String line: allLines) {
+			addLine(line);
+		}
 	}
 }
