@@ -137,5 +137,27 @@ public class TextBuddyTest {
 		assertEquals("Unknown command format", organiserTest.processCommand("Clear"));
 		assertEquals("Unknown command format", organiserTest.processCommand("123 add5"));
 	}
+	
+	@Test
+	public void testOrganiserValidCommand() {
+		
+		Organiser organiserTest = new Organiser("organiserTest.txt");
+		assertEquals("Welcome to TextBuddy. organiserTest.txt is ready for use", organiserTest.showWelcomeMessage());
+		assertEquals("command: ", organiserTest.promptForCommand());
+		assertEquals("added to organiserTest.txt: \"do homework by Wed\"", organiserTest.processCommand("add do homework by Wed"));
+		assertEquals("added to organiserTest.txt: \"QwErTy\"", organiserTest.processCommand("add QwErTy"));
+		assertEquals("1. do homework by Wed\n2. QwErTy", organiserTest.processCommand("display"));
+		assertEquals("deleted from organiserTest.txt: \"QwErTy\"", organiserTest.processCommand("delete 2"));
+		assertEquals("Line number 2 does not exist", organiserTest.processCommand("delete 2"));
+		assertEquals("deleted from organiserTest.txt: \"do homework by Wed\"", organiserTest.processCommand("delete 1"));
+		assertEquals("organiserTest.txt is empty", organiserTest.processCommand("display"));
+		
+		assertEquals("added to organiserTest.txt: \"a\"", organiserTest.processCommand("add a"));
+		assertEquals("added to organiserTest.txt: \"b\"", organiserTest.processCommand("add b"));
+		assertEquals("added to organiserTest.txt: \"c\"", organiserTest.processCommand("add c"));
+		assertEquals("1. a\n2. b\n3. c", organiserTest.processCommand("display"));
+		assertEquals("all content deleted from organiserTest.txt", organiserTest.processCommand("clear"));
+		assertEquals("organiserTest.txt is empty", organiserTest.processCommand("display"));
+	}
 
 }
