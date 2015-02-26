@@ -126,11 +126,13 @@ public class Storage {
 		String searchResult = "";
 		int bulletpoint = 1;
 		for(int index = 0; index < allLines.size(); index++) {
-			if (index == allLines.size()-1) {
-				searchResult += bulletpoint + ". " + allLines.get(index); 
-			} else {
-				searchResult += bulletpoint + ". " + allLines.get(index) + "\n";
-				bulletpoint++;
+			if (allLines.get(index).contains(keyword)) {
+				if (index == allLines.size()-1) {
+					searchResult += bulletpoint + ". " + allLines.get(index); 
+				} else {
+					searchResult += bulletpoint + ". " + allLines.get(index) + "\n"; 
+					bulletpoint++;
+				}
 			}
 		}
 		return searchResult;
