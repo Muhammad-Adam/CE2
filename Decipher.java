@@ -33,11 +33,7 @@ public class Decipher {
 	
 	// Checks whether the command is valid one-part command
 	private boolean isValidOnePartCommand() {
-		if (this.getCommandType().equals("display") || this.getCommandType().equals("clear") || this.getCommandType().equals("exit") || this.getCommandType().equals("sort")) {
-			return true;
-		} else {
-			return false;
-		}
+		return getCommandType().equals("display") || getCommandType().equals("clear") || getCommandType().equals("exit") || getCommandType().equals("sort");
 	}
 	
 	// Checks whether the command is a valid two-parts command
