@@ -68,7 +68,7 @@ public class Storage {
 		ArrayList<String> allLines = storeInArrayList();
 		String displayString = "";
 		int bulletpoint = 1;
-		for(int index = 0; index < allLines.size(); index++) {
+		for (int index = 0; index < allLines.size(); index++) {
 			if (index == allLines.size()-1) {
 				displayString += bulletpoint + ". " + allLines.get(index); 
 			} else {
@@ -116,23 +116,29 @@ public class Storage {
 		}
 	}
 
-	public String searchFor(String string) {
-		String keyword = " " + string + " ";
-		return filterByKeyword(keyword);
+	public String searchFor(String keyword) {
+		ArrayList<String> allLines = storeInArrayList();
+		ArrayList<String> resultLines = new ArrayList<String>();
+		for (int index = 0; index < allLines.size(); index++) {
+			String[] cutUpLine = allLines.get(index).split(" ");
+			for (String word: cutUpLine) {
+				if (word.equals(keyword)) {
+					resultLines.add(allLines.get(index));
+				}
+			}
+		}
+		return printResult(resultLines);
 	}
 	
-	private String filterByKeyword(String keyword) {
-		ArrayList<String> allLines = storeInArrayList();
+	private String printResult(ArrayList<String> resultLines) {
 		String searchResult = "";
 		int bulletpoint = 1;
-		for(int index = 0; index < allLines.size(); index++) {
-			if (allLines.get(index).contains(keyword)) {
-				if (index == allLines.size()-1) {
-					searchResult += bulletpoint + ". " + allLines.get(index); 
-				} else {
-					searchResult += bulletpoint + ". " + allLines.get(index) + "\n"; 
-					bulletpoint++;
-				}
+		for (int index = 0; index < resultLines.size(); index++) {			
+			if (index == resultLines.size()-1) {
+				searchResult += bulletpoint + ". " + resultLines.get(index); 
+			} else {
+				searchResult += bulletpoint + ". " + resultLines.get(index) + "\n"; 
+				bulletpoint++;
 			}
 		}
 		return searchResult;
