@@ -163,8 +163,6 @@ public class TextBuddyTest {
 	public void testOrganiserInvalidCommand() {
 		
 		Organiser organiserTest = new Organiser("organiserTest.txt");
-		assertEquals("Welcome to TextBuddy. organiserTest.txt is ready for use", organiserTest.showWelcomeMessage());
-		assertEquals("command: ", organiserTest.promptForCommand());
 		assertEquals("Unknown command format", organiserTest.processCommand("add"));
 		assertEquals("Unknown command format", organiserTest.processCommand("delete a"));
 		assertEquals("Unknown command format", organiserTest.processCommand(" add text"));
@@ -174,12 +172,15 @@ public class TextBuddyTest {
 		assertEquals("Unknown command format", organiserTest.processCommand("123 add5"));
 		assertEquals("Unknown command format", organiserTest.processCommand("sort now"));
 		assertEquals("Unknown command format", organiserTest.processCommand("Sort"));
+		assertEquals("Unknown command format", organiserTest.processCommand("search"));
+		assertEquals("Unknown command format", organiserTest.processCommand("Search keyword"));
 	}
 	
 	@Test
 	public void testOrganiserValidCommand() {
 		
 		Organiser organiserTest = new Organiser("organiserTest.txt");
+		organiserTest.processCommand("clear");
 		assertEquals("Welcome to TextBuddy. organiserTest.txt is ready for use", organiserTest.showWelcomeMessage());
 		assertEquals("command: ", organiserTest.promptForCommand());
 		assertEquals("added to organiserTest.txt: \"do homework by Wed\"", organiserTest.processCommand("add do homework by Wed"));
@@ -197,6 +198,9 @@ public class TextBuddyTest {
 		
 		assertEquals("Contents sorted!", organiserTest.processCommand("sort"));
 		assertEquals("1. a\n2. b\n3. c", organiserTest.processCommand("display"));
+		
+		assertEquals("1. c", organiserTest.processCommand("search c"));
+		assertEquals("no lines containing the word: \"z\"", organiserTest.processCommand("search z"));
 		
 		assertEquals("all content deleted from organiserTest.txt", organiserTest.processCommand("clear"));
 		assertEquals("organiserTest.txt is empty", organiserTest.processCommand("display"));
