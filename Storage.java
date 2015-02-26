@@ -118,7 +118,21 @@ public class Storage {
 
 	public String searchFor(String string) {
 		String keyword = " " + string + " ";
-		ArrayList<String> allLines = storeInArrayList();
 		return filterByKeyword(keyword);
+	}
+	
+	private String filterByKeyword(String keyword) {
+		ArrayList<String> allLines = storeInArrayList();
+		String searchResult = "";
+		int bulletpoint = 1;
+		for(int index = 0; index < allLines.size(); index++) {
+			if (index == allLines.size()-1) {
+				searchResult += bulletpoint + ". " + allLines.get(index); 
+			} else {
+				searchResult += bulletpoint + ". " + allLines.get(index) + "\n";
+				bulletpoint++;
+			}
+		}
+		return searchResult;
 	}
 }
