@@ -107,7 +107,7 @@ public class Storage {
 	}
 
 	public Object sortContent() {
-		// TODO Auto-generated method stub
+		ArrayList<String> listOfText = new ArrayList<String>();
 		return null;
 	}
 }
