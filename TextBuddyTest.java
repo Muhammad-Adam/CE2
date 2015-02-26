@@ -3,7 +3,8 @@ import org.junit.Test;
 
 
 public class TextBuddyTest {
-
+	
+	// Checks whether all kinds of valid commands return true
 	@Test
 	public void testDecipherValidCommand() {
 		
@@ -49,6 +50,7 @@ public class TextBuddyTest {
 		assertTrue(decipherTest.isGoodCommand());
 	}
 	
+	// Check all kinds of invalid commands return false
 	@Test
 	public void testDecipherInvalidCommand() {
 		
@@ -111,6 +113,7 @@ public class TextBuddyTest {
 		assertFalse(decipherTest.isGoodCommand());
 	}
 	
+	// Checks whether the formatting of the contents are handled properly even for ridiculous but valid commands
 	@Test
 	public void testStorage() {
 		
@@ -132,6 +135,7 @@ public class TextBuddyTest {
 		assertEquals("", storageTest.deleteLine("10"));
 	}
 	
+	// Checks whether every valid command type will do what it is suppose to do and check its response
 	@Test
 	public void testLogic() {
 		
@@ -159,6 +163,7 @@ public class TextBuddyTest {
 		assertEquals("Goodbye!", logicTest.execute("exit"));
 	}
 	
+	// Test all the invalid commands given by the user
 	@Test
 	public void testOrganiserInvalidCommand() {
 		
@@ -176,6 +181,7 @@ public class TextBuddyTest {
 		assertEquals("Unknown command format", organiserTest.processCommand("Search keyword"));
 	}
 	
+	// Test all the valid commands and check its appropriate response to different commands
 	@Test
 	public void testOrganiserValidCommand() {
 		
@@ -206,6 +212,8 @@ public class TextBuddyTest {
 		assertEquals("organiserTest.txt is empty", organiserTest.processCommand("display"));
 	}
 	
+	// Check whether the sorting mechanism works by using "printLines" after sort
+	// Note that I did not test for "before sorting" because previous test cases had handled them
 	@Test
 	public void testSort() {
 		
@@ -229,6 +237,7 @@ public class TextBuddyTest {
 		assertEquals("1. aaa\n2. aaaaaa\n3. aab\n4. ababa\n5. baaaaaa", storageTest.printLines());
 	}
 	
+	// Checks whether the search function works for keywords found infront, middle or back.
 	@Test
 	public void testSearch() {
 		Storage storageTest = new Storage("searchTest.txt");

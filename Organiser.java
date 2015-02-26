@@ -29,7 +29,6 @@ public class Organiser {
 		return MESSAGE_COMMAND;
 	}
 	
-	
 	// Method creates Decipher object and check if valid before calling other method
 	public String processCommand(String command) { 
 		Decipher myDecipher = new Decipher(command);
@@ -39,6 +38,7 @@ public class Organiser {
 			return MESSAGE_UNKNOWN_COMMAND;
 		}
 	}
+	
 	// Create a Logic object and pass is to appropriate method depending on command type
 	private String divertToMethods(String command, Decipher myDecipher) {
 		Logic myLogic = new Logic(fileName);

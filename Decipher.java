@@ -52,5 +52,4 @@ public class Decipher {
 			return false;
 		}
 	}
-
 }

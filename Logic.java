@@ -72,8 +72,9 @@ public class Logic {
 		String searchResult = myStorage.searchFor(keyword);
 		if (isEmpty(searchResult)) {
 			return String.format(MESSAGE_NO_RESULT, keyword);
+		} else {
+			return searchResult;
 		}
-		return searchResult;
 	}
 	
 	/*
