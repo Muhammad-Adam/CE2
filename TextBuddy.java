@@ -42,6 +42,7 @@ public class TextBuddy {
 	// Generally will just loop until an "exit" command is given
 	public static void main(String[] args) {
 		Organiser myOrganiser = new Organiser(args[0]);
+		myOrganiser.createOrOpenFile();
 		println(myOrganiser.showWelcomeMessage());
 		while (!command.equals("exit")) {
 			print(myOrganiser.promptForCommand());

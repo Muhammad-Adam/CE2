@@ -19,6 +19,11 @@ public class Organiser {
 		return String.format(MESSAGE_WELCOME, fileName);
 	}
 	
+	public void createOrOpenFile() {
+		Storage myStorage = new Storage(fileName);
+		myStorage.createOrOpenTextFile();
+	}
+	
 	public String promptForCommand() {
 		return MESSAGE_COMMAND;
 	}

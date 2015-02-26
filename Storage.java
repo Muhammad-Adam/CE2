@@ -18,6 +18,15 @@ public class Storage {
 		this.fileName = fileName;
 	}
 	
+	public void createOrOpenTextFile() {
+		try {
+			PrintWriter writer = new PrintWriter(new FileWriter(fileName, true));
+			writer.close();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+	
 	// Add a line to the text file
 	public void addLine(String description) {
 		try {
