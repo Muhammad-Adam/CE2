@@ -115,4 +115,9 @@ public class Storage {
 			addLine(line);
 		}
 	}
+
+	public Object searchFor(String string) {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }
