@@ -1,6 +1,11 @@
 import static org.junit.Assert.*;
 import org.junit.Test;
 
+/**
+ * Note that the testing is conducting following the hierarchy (Most independant to most dependant)
+ * This is to ensure that the most independant class will work as intended before testing classes
+ * that is dependant on the independant class.
+ */
 
 public class TextBuddyTest {
 	
