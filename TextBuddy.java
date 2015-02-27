@@ -1,3 +1,5 @@
+package CE2;
+
 import java.util.Scanner;
 
 /**

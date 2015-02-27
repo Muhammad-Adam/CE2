@@ -1,3 +1,5 @@
+package CE2;
+
 /** This class will help to decode what kind of command entered and its relevant information
  * 	and whether or not a valid command is entered
  */

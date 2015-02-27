@@ -1,3 +1,5 @@
+package CE2;
+
 /** This class handles all the valid commands entered
  * 	This class will NOT handle invalid commands at all
  */

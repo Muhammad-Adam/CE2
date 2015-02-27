@@ -1,3 +1,5 @@
+package CE2;
+
 /**
  * This class only serves the purpose of helping the main class to execute methods
  * when the main class is looping.
