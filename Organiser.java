@@ -52,6 +52,7 @@ public class Organiser {
 	}
 	
 	private boolean commandGroupOne(String commandType) {
-		return commandType.equals("add") || commandType.equals("delete") || commandType.equals("search");
+		return commandType.equals("add") || commandType.equals("delete") || 
+			   commandType.equals("search");
 	}
 }

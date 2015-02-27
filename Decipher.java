@@ -33,13 +33,15 @@ public class Decipher {
 	
 	// Checks whether the command is valid one-part command
 	private boolean isValidOnePartCommand() {
-		return getCommandType().equals("display") || getCommandType().equals("clear") || getCommandType().equals("exit") || getCommandType().equals("sort");
+		return getCommandType().equals("display") || getCommandType().equals("clear") || 
+			   getCommandType().equals("exit") || getCommandType().equals("sort");
 	}
 	
 	// Checks whether the command is a valid two-parts command
 	private boolean isValidTwoPartsCommand() {
 		boolean isValid = true;
-		if (this.getCommandType().equals("delete") || this.getCommandType().equals("add") || this.getCommandType().equals("search")) {
+		if (getCommandType().equals("delete") || getCommandType().equals("add") || 
+			getCommandType().equals("search")) {
 			try {
 				Integer.parseInt(this.getDescription());
 			} catch (NumberFormatException e) {
